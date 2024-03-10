@@ -32,47 +32,6 @@
   background: #1a1919;
 }
 
-.main__title {
-  color: #ffa500;
-  background-color: rgb(51, 50, 50);
-  border-radius: 20px 20px 0 0;
-  position: absolute;
-  box-sizing: border-box;
-  padding: 30px 70px 56px 0;
-  opacity: 0.8;
-  font-size: 50px;
-  z-index: 1;
-  margin: 0;
-  font-weight: 800;
-  width: 1480px;
-  text-align: end;
-  margin: 0;
-  left: -40px;
-}
-
-@media screen and (max-width: 1480px) {
-  .main__title {
-    width: calc(100vw - 20px);
-    /*height: calc(66vw - 40px);*/
-  }
-}
-
-.main__subtitle {
-  color: #ffa500;
-  position: absolute;
-  box-sizing: border-box;
-  opacity: 0.4;
-  font-size: 24px;
-  z-index: 2;
-  margin: 0;
-  font-weight: 400;
-  width: 1480px;
-  text-align: end;
-  margin: 0;
-  left: -110px;
-  top: 100px;
-}
-
 .main__menu {
   color: white;
   background-color: rgb(51, 50, 50);
@@ -85,15 +44,6 @@
   z-index: 1;
   width: 500px;
   height: 900px;
-}
-
-.main__logo {
-  position: absolute;
-  top: 20PX;
-  left: 20PX;
-  width: 240PX;
-  opacity: 0.7;
-  z-index: 2;
 }
 
 @media screen and (max-width: 1480px) {
@@ -245,7 +195,7 @@
   background: #ffa500;
 }
 
-.utton:hover .main__button-third {
+.button:hover .main__button-third {
   top: 0;
   left: 25%;
 }
@@ -263,4 +213,9 @@
 .button:hover .main__button-fourth {
   top: 0;
   left: 0;
+}
+
+.main__greetingText {
+  color: #91843d;
+  font-size: 26px;
 }

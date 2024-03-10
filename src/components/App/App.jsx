@@ -2,14 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import Main from '../Main/Main.jsx';
 import PageNotFound from '../PageNotFound/PageNotFound.jsx';
-//import DeckItemPage from '../DeckItemPage/DeckItemPage.jsx';
-//import WordItemPage from '../WordItemPage/WordItemPage.jsx';
-//import NumbersTrainPage from '../NumbersTrainPage/NumbersTrainPage.jsx';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-//import { vocabulary, topics, verbs } from "../../utils/constants.js";
-//import { removeCurrentDeck, setCurrentDeck, setCurrentWord  } from '../../services/actions/currentDeck.js';
+import { setUserName, setUserNick, clearUser } from '../../services/actions/user';
 
 function App() {
 
@@ -17,7 +13,24 @@ function App() {
   //const { currentWord } = useSelector(state => state.currentDeckReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { userName } = useSelector(state => state.userReducer);
 
+  useEffect(() => {
+    console.log(localStorage)
+  }, [localStorage.userNick]);
+
+  useEffect(() => {
+    if ((localStorage.getItem('userName') !== (null || undefined)) &&
+    (localStorage.getItem('userNick') !== (null || undefined))) {
+      console.log(localStorage.getItem('userName'));
+      dispatch(setUserName(localStorage.getItem('userName')));
+      dispatch(setUserNick(localStorage.getItem('userNick')));
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(userName);
+  }, [userName]);
 
   return (
     <>

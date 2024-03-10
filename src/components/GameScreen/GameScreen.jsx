@@ -1,37 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import fone from '../../images/fone.jpg';
 import './GameScreen.css';
-import { topics, topicsForRender, partsOfSpeach } from '../../../utils/constants';
 
 function GameScreen() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { currentDeck } = useSelector(state => state.currentDeckReducer);
-
-  function setDeck(item) {
-
-  };
 
   return (
     <>
-    <section className="aboutMe__content" id="AboutMe">
-      <div className='aboutMe__text-block'>
-        <div className='aboutMe__column'>
-          <div className='aboutMe__column1'>
-          </div>
-        </div>        
-     
-      </div>
-    </section>
-    <section className="decks__main-content" id="Main-decks">
-      <div className="decks__content-wrap">
-        <div className="decks__item" onClick={() => {setDeck({})}}>
-        </div>
+      <main className="game__content">
+        <div className="game__menu"></div>
+        <img src={fone} alt="Cthsq ajy" className="game__fone"/>
+        <p className="game__text">
+          Однажды тут будет город-сад.
+        </p>
+        <p className="game__text1">
+        Но пока тут только свист ветра...
+        </p>
 
-      </div>
-    </section>
+      </main> : <></>
     </>
   );
 }  

@@ -1,0 +1,103 @@
+@import url(../../vendor/Railroad/stylesheet.css);
+
+@keyframes ani {
+  0% {opacity: 0.3;}
+  100% {opacity: 1;}
+}
+
+@keyframes ani2 {
+  0% {opacity: 0.5;}
+  100% {opacity: 0.7;}
+}
+
+@keyframes fade2 {
+  0% {opacity: 0.2;}
+  10% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes loading {
+    0% {
+      rotate: 0deg;
+    }
+    100% {
+      rotate: 360deg;
+    }
+  } 
+
+.header {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  background: #1a1919;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 40px;
+  right: 0;
+  text-align: center;
+}
+
+.header__title {
+  color: #ffa500;
+  background-color: rgb(51, 50, 50);
+  border-radius: 20px 20px 0 0;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 30px 70px 56px 0;
+  opacity: 0.8;
+  font-size: 50px;
+  z-index: 1;
+  margin: 0;
+  font-weight: 800;
+  width: 1480px;
+  text-align: end;
+  margin: 0;
+  left: -40px;
+}
+
+@media screen and (max-width: 1480px) {
+  .header__title {
+    width: calc(100vw - 20px);
+    /*height: calc(66vw - 40px);*/
+  }
+}
+
+.header__subtitle {
+  color: #ffa500;
+  position: absolute;
+  box-sizing: border-box;
+  opacity: 0.4;
+  font-size: 24px;
+  z-index: 2;
+  margin: 0;
+  font-weight: 400;
+  width: 1480px;
+  text-align: end;
+  margin: 0;
+  left: -110px;
+  top: 100px;
+}
+
+.header__logo {
+  position: absolute;
+  top: 20PX;
+  left: 20PX;
+  width: 240PX;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.header__logo:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.5s;
+  transform: scale(1.2);
+}

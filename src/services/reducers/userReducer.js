@@ -1,5 +1,6 @@
 import {
-    SET_USER,
+    SET_USERNAME,
+    SET_USERNICK,
     CLEAR_USER,
     SET_PROGRESS,
     CLEAR_PROGRESS,
@@ -8,17 +9,23 @@ import {
   } from "../../utils/constants";
   
   const initialState = {
-    user: null,
+    userName: null,
+    userNick: null,
     progress: null,
     temporaryProgress: null,
   }
   
   export const userReducer = (state = initialState, action) => {
     switch (action.type) {
-      case SET_USER:
+      case SET_USERNAME:
         return {
           ...state,
-          user: action.item
+          userName: action.item
+        }
+      case SET_USERNICK:
+        return {
+          ...state,
+          userNick: action.item
         }
       case SET_PROGRESS:
         return {

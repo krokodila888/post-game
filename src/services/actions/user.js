@@ -1,5 +1,6 @@
 import {
-    SET_USER,
+    SET_USERNAME,
+    SET_USERNICK,
     CLEAR_USER,
     SET_PROGRESS,
     CLEAR_PROGRESS,
@@ -7,9 +8,16 @@ import {
     CLEAR_TEMPORARY_PROGRESS,
   } from "../../utils/constants";
   
-export function setUser(data) {
+export function setUserName(data) {
   return {
-    type: SET_USER,
+    type: SET_USERNAME,
+    item: data
+  }
+}
+
+export function setUserNick(data) {
+  return {
+    type: SET_USERNICK,
     item: data
   }
 }

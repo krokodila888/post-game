@@ -1,4 +1,5 @@
-export const SET_USER = 'SET_USER';
+export const SET_USERNAME = 'SET_USERNAME';
+export const SET_USERNICK = 'SET_USERNICK';
 export const CLEAR_USER = 'CLEAR_USER';
 export const SET_PROGRESS = 'SET_PROGRESS';
 export const CLEAR_PROGRESS = 'CLEAR_PROGRESS';
