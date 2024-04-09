@@ -1,0 +1,151 @@
+@import url(../../vendor/Railroad/stylesheet.css);
+
+@keyframes ani {
+  0% {opacity: 0.3;}
+  100% {opacity: 1;}
+}
+
+@keyframes ani2 {
+  0% {opacity: 0.5;}
+  100% {opacity: 0.7;}
+}
+
+@keyframes fade2 {
+  0% {opacity: 0.2;}
+  10% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.resumeGameScreen__content {
+  display: flex;
+  flex-direction: row;
+  max-width: 1440px;
+  /*max-height: 900px;*/
+  position: relative;
+  background: #1a1919;
+  padding-top: 170px;
+  color: rgb(100, 100, 98);
+  min-height: 780px;
+}
+
+.resumeGameScreen__textblock-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  /*max-height: 900px;*/
+  position: relative;
+  background: #1a1919;
+  /*padding-top: 170px;*/
+  color: rgb(100, 100, 98);
+  min-height: 780px;
+}
+
+.resumeGameScreen__pic {
+  height: 700px;
+  margin: 20px 50px;
+  z-index: 2;
+}
+
+.resumeGameScreen__title {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.resumeGameScreen__last-text {
+  font-size: 52px;
+  margin-bottom: 20px;
+  margin-top: 150px;
+  width: 480px;
+}
+
+.resumeGameScreen__text {
+  font-size: 26px;
+  margin: 0;
+  max-width: 480px;
+}
+
+.resumeGameScreen__small-text {
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px;
+  text-align: center;
+}
+
+.resumeGameScreen__small-text:last-of-type {
+  margin-top: 10px;
+}
+
+.resumeGameScreen__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.resumeGameScreen__button {
+  color: rgb(51, 50, 50);
+  background-color: #ffa500;
+  width: 480px;
+  height: 60px;
+  margin: 20px 0;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.resumeGameScreen__button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.resumeGameScreen__button-block {
+  width: 480px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.resumeGameScreen__small-button {
+  color: rgb(51, 50, 50);
+  background-color: #ffa500;
+  width: 230px;
+  height: 72px;
+  margin: 12px 0;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.resumeGameScreen__small-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.resumeGameScreen__input {
+  background: white;
+  border: none;
+  border-bottom: 1px solid #E8E8E8;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  width: 480px;
+  height: 52px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 12px;
+}

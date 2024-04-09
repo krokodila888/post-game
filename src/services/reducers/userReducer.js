@@ -11,7 +11,7 @@ import {
   const initialState = {
     userName: null,
     userNick: null,
-    progress: null,
+    gameProgress: null,
     temporaryProgress: null,
   }
   
@@ -30,7 +30,7 @@ import {
       case SET_PROGRESS:
         return {
           ...state,
-          progress: action.item,
+          gameProgress: action.item,
         }
       case SET_TEMPORARY_PROGRESS:
         return {
@@ -40,7 +40,7 @@ import {
       case CLEAR_PROGRESS:
         return {
           ...state,
-          progress: null,
+          gameProgress: null,
           temporaryProgress: null,
         }
       case CLEAR_TEMPORARY_PROGRESS:
