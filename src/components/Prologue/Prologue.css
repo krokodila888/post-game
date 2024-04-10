@@ -79,6 +79,13 @@
   z-index: 3;
 }
 
+@media screen and (max-width: 680px) {
+  .prologue__skip {
+    height: 20px;
+    width: 26px;
+  }
+}
+
 .prologue__skip:hover {
   cursor: pointer;
   opacity: 0.6;
@@ -86,7 +93,6 @@
 }
 
 .prologue__text {
-  margin-top: 200px;
   font-size: 32px;
   color: #ffffff;
   padding-left: 30px;
@@ -97,6 +103,14 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+@media screen and (max-width: 1280px) {
+  .prologue__text  {
+    top: 40vw;
+    width: 40%;
+    font-size: clamp(12px, 2vw, 32px);
+  }
+}
+
 .prologue__pic {
   object-fit: cover;
   object-position: right bottom;
@@ -104,10 +118,24 @@
   height: 900px;
 }
 
+@media screen and (max-width: 580px) {
+  .prologue__pic {
+    width: 100vw;
+    height: 66vw;
+  }
+}
+
 @media screen and (max-width: 1480px) {
   .prologue__pic {
     width: calc(100vw - 40px);
     height: calc(66vw - 40px);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .prologue__fone {
+    width: 100vw;
+    height: 66vw;
   }
 }
 

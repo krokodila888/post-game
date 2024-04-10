@@ -136,7 +136,6 @@ const Main: FC = () => {
         goNext={goNext}/>
       {(screen === 'main') &&
       <main className="main__content">
-        <div className="main__menu"></div>
         <img src={fone} alt="Серый фон" className="main__fone"/>
         {pic === 1 && 
         <>

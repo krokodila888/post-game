@@ -28,13 +28,12 @@ const ResumeGameScreen: FC<TResumeGameScreenProps> = ({ goNext, screen }) => {
 
   function handleUser(evt: any) {
     evt.preventDefault();
-    console.log('button1' + button1);
-    console.log('gamesaving' + gameSaving);
+    //console.log('button1' + button1);
+    //console.log('gamesaving' + gameSaving);
     dispatch(setUserName(form.userName));
     dispatch(setUserNick(form.nick));
-    console.log(form);
+    //console.log(form);
     setButton1(true);
-    //setButton1(false)
   }
 
   useEffect(() => {
@@ -107,12 +106,6 @@ const ResumeGameScreen: FC<TResumeGameScreenProps> = ({ goNext, screen }) => {
       setGameSaving(false);
     }
   }, []);
-
-  /*
-  - если в хранилище браузера есть данные о сохранении, надо взять их и начать с этого места (и придумать семантику системы сохранений, чтобы там был не ужас-ужас) после подтверждения игрока (а еще придумать, как включить правильную музыку - пока у меня одна сцена и один трек по умолчанию, а будет тьма их);
-- если в хранилище браузера нифига нет, предложить игроку запомнить имя/кличку и вбить комбинацию своего сохранения (проверить ее на валидность. Если там херня - вывести игроку надпись "сорян, там херня", если там все хорошо - переключить в игру;
-- если комбинация невалидна, предложить игроку восстановить цепочку выборов в сюжетных сценах на экранах про них, в идеале с текстом и картинкой, маскируя важные и неважные - и сгенерить последовательность из них, и потом переключить в игру
-*/
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue({ ...form, [e.target.name]: e.target.value });
