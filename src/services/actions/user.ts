@@ -1,18 +1,18 @@
 import {
-    SET_USERNAME,
-    SET_USERNICK,
-    CLEAR_USER,
-    SET_PROGRESS,
-    CLEAR_PROGRESS,
-    SET_TEMPORARY_PROGRESS,
-    CLEAR_TEMPORARY_PROGRESS,
-  } from "../../utils/constants";
+  SET_USERNAME,
+  SET_USERNICK,
+  CLEAR_USER,
+  SET_PROGRESS,
+  CLEAR_PROGRESS,
+  SET_TEMPORARY_PROGRESS,
+  CLEAR_TEMPORARY_PROGRESS,
+} from '../../utils/constants';
 
 export interface ISetUserName {
   readonly type: typeof SET_USERNAME;
   readonly item: string;
 }
-  
+
 export interface ISetUserNick {
   readonly type: typeof SET_USERNICK;
   readonly item: string;
@@ -40,43 +40,43 @@ export interface IClearTemporaryProgress {
   readonly type: typeof CLEAR_TEMPORARY_PROGRESS;
 }
 
-export type TUserActions = 
+export type TUserActions =
   | ISetUserName
   | ISetUserNick
   | ISetProgress
   | ISetTemporaryProgress
   | IClearUser
   | IClearProgress
-  | IClearTemporaryProgress
+  | IClearTemporaryProgress;
 
 export const setUserName = (item: string): ISetUserName => ({
   type: SET_USERNAME,
-  item
-}); 
+  item,
+});
 
 export const setUserNick = (item: string): ISetUserNick => ({
   type: SET_USERNICK,
-  item
+  item,
 });
 
-export const clearUser = (): IClearUser=> ({
-  type: CLEAR_USER
-}); 
+export const clearUser = (): IClearUser => ({
+  type: CLEAR_USER,
+});
 
 export const setProgress = (item: string): ISetProgress => ({
   type: SET_PROGRESS,
-  item
+  item,
 });
 
 export const clearProgress = (): IClearProgress => ({
-  type: CLEAR_PROGRESS
-}); 
+  type: CLEAR_PROGRESS,
+});
 
 export const setTemporaryProgress = (item: string): ISetTemporaryProgress => ({
   type: SET_TEMPORARY_PROGRESS,
-  item
+  item,
 });
 
 export const clearTemporaryProgress = (): IClearTemporaryProgress => ({
-  type: CLEAR_TEMPORARY_PROGRESS
-}); 
+  type: CLEAR_TEMPORARY_PROGRESS,
+});

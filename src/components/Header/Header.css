@@ -1,42 +1,52 @@
 @import url(../../vendor/Railroad/stylesheet.css);
 
 @keyframes ani {
+
   0% {
     opacity: 0.3;
   }
+
   100% {
     opacity: 1;
   }
 }
 
 @keyframes ani2 {
+
   0% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 0.7;
   }
 }
 
 @keyframes fade2 {
+
   0% {
     opacity: 0.2;
   }
+
   10% {
     opacity: 0.9;
   }
+
   95% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.9;
   }
 }
 
 @keyframes loading {
+
   0% {
     rotate: 0deg;
   }
+
   100% {
     rotate: 360deg;
   }
@@ -62,8 +72,9 @@
 }
 
 @media screen and (max-width: 1480px) {
+
   .header {
-    left: 0px;
+    left: 0;
     right: 0;
     height: auto;
     padding-right: 32px;
@@ -71,6 +82,7 @@
 }
 
 @media screen and (max-width: 680px) {
+
   .header {
     padding-right: 12px;
   }
@@ -80,7 +92,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgb(57 57 53 / 77%);
+  background-color: rgb(57 57 53 / 0.77);
   left: -40px;
   border-radius: 20px 20px 0 0;
   z-index: -1;
@@ -90,26 +102,26 @@
   color: #ffa500;
   border-radius: 20px 20px 0 0;
   box-sizing: border-box;
-  padding: 16px 0px;
+  padding: 16px 0;
   opacity: 0.8;
   font-size: clamp(14px, 3vw, 46px);
   z-index: 1;
-  margin: 0;
   font-weight: 800;
   text-align: end;
   margin: 0;
   left: -40px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-shadow:
-    1px 1px 0px #2b2b2b,
-    3px 10px 2px rgb(0 0 0 / 95%);
-  -webkit-text-stroke: 1px #000000;
+    1px 1px 0 #2b2b2b,
+    3px 10px 2px rgb(0 0 0 / 0.95);
+  -webkit-text-stroke: 1px #000;
   align-self: flex-end;
 }
 
 @media screen and (max-width: 580px) {
+
   .header__title {
-    padding: 10px 0px;
+    padding: 10px 0;
   }
 }
 
@@ -119,24 +131,25 @@
   opacity: 0.6;
   font-size: clamp(8px, 2vw, 20px);
   z-index: 2;
-  margin: 0;
   font-weight: 600;
   text-align: end;
   margin: 0;
   text-shadow: 1px 8px 1px #2b2b2b;
-  padding: 0px 0px 16px 0;
+  padding: 0 0 16px;
   align-self: flex-end;
 }
 
 @media screen and (max-width: 700px) {
+
   .header__subtitle {
-    padding: 0px 0px 12px 0;
+    padding: 0 0 12px;
   }
 }
 
 @media screen and (max-width: 600px) {
+
   .header__subtitle {
-    padding: 0px 0px 8px 0;
+    padding: 0 0 8px;
   }
 }
 
@@ -148,17 +161,19 @@
   z-index: 3;
   transform: rotate(340deg);
   opacity: 0.9;
-  filter: drop-shadow(-20px 4px 4px rgba(0 0 0 / 90%));
+  filter: drop-shadow(-20px 4px 4px rgba(0 0 0 / 0.9));
   align-self: center;
 }
 
 @media screen and (max-width: 1000px) {
+
   .header__logo {
     width: 12vw;
   }
 }
 
 @media screen and (max-width: 480px) {
+
   .header__logo {
     left: 20px;
   }
@@ -168,7 +183,6 @@
   opacity: 0.5;
   cursor: pointer;
   transition: 0.5s;
-  transform: scale(1.1);
   transform: rotate(350deg);
 }
 

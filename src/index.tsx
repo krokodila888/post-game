@@ -14,9 +14,16 @@ declare global {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
 }
-const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLFormElement);
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const composeEnhancers =
+  (typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLFormElement
+);
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 root.render(
   <React.StrictMode>

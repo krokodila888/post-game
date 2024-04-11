@@ -4,9 +4,9 @@ export type TScreenButton = {
 };
 
 export type TScreenFigure = {
-  url: string,
-  position: string,
-}
+  url: string;
+  position: string;
+};
 
 export type TScreen = {
   turn: number;
@@ -23,7 +23,9 @@ export type TScreen = {
   index?: number;
   type1?: string;
   count?: number;
-  next?: string;
+  next?: Array<TScreen>;
+  nextPart?: string;
+  nextSave?: string;
 };
 
 export type TNickList = {
@@ -32,10 +34,10 @@ export type TNickList = {
 
 export type TParts = {
   name: string;
-  module: Array<TScreen>
-}
+  module: Array<TScreen>;
+};
 
 export type TPrologueScreenType = {
-  pic: string,
-  text: string,
-}
+  pic: string;
+  text: string;
+};

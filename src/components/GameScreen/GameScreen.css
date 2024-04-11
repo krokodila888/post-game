@@ -1,33 +1,41 @@
 @import url(../../vendor/Railroad/stylesheet.css);
 
 @keyframes ani {
+
   0% {
     opacity: 0.3;
   }
+
   100% {
     opacity: 1;
   }
 }
 
 @keyframes ani2 {
+
   0% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 0.7;
   }
 }
 
 @keyframes fade2 {
+
   0% {
     opacity: 0.2;
   }
+
   10% {
     opacity: 0.9;
   }
+
   95% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.9;
   }
@@ -45,6 +53,7 @@
 }
 
 @media screen and (max-width: 1440px) {
+
   .game__content {
     height: 60vw;
   }
@@ -59,6 +68,7 @@
 }
 
 @media screen and (max-width: 1480px) {
+
   .game__pic {
     width: calc(100vw - 40px);
     height: calc(66vw - 40px);
@@ -67,7 +77,7 @@
 
 .game__text2 {
   font-size: clamp(8px, 1.8vw, 24px);
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
   color: #e3ded5;
   padding-left: 30px;
   padding-right: 30px;
@@ -123,12 +133,11 @@
 .game__choise:hover {
   cursor: pointer;
   opacity: 0.7;
-  background-color: rgb(90, 90, 126);
+  background-color: rgb(90 90 126);
   transition: 0.5s;
 }
 
 .game__text1 {
-  font-size: clamp(6px, 1.2vw, 14px);
   font-size: 28px;
   color: #ffa500;
   padding-left: 30px;
@@ -188,6 +197,7 @@
 }
 
 @media screen and (max-width: 880px) {
+
   .game__infoBlock {
     width: auto;
     min-width: 20%;
@@ -202,12 +212,6 @@
   margin: 0;
 }
 
-.game__skip:hover {
-  cursor: pointer;
-  opacity: 0.6;
-  transition: 0.5s ease;
-}
-
 .game__figure {
   height: 740px;
   z-index: 1;
@@ -217,6 +221,7 @@
 }
 
 @media screen and (max-width: 1480px) {
+
   .game__figure {
     height: calc(56vw);
     bottom: 0;
@@ -228,11 +233,12 @@
   height: 700px;
   z-index: 1;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   right: 90px;
 }
 
 @media screen and (max-width: 1480px) {
+
   .game__figure2 {
     height: calc(56vw);
     bottom: 0;
@@ -244,7 +250,7 @@
   height: 740px;
   z-index: 1;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   right: 290px;
 }
 
@@ -252,11 +258,12 @@
   height: 670px;
   z-index: 1;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   right: 90px;
 }
 
 @media screen and (max-width: 1480px) {
+
   .game__figure3 {
     height: calc(56vw);
     bottom: 0;
@@ -265,6 +272,7 @@
 }
 
 @media screen and (max-width: 1480px) {
+
   .game__fone {
     width: calc(100vw - 40px);
     height: calc(66vw - 40px);

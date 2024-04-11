@@ -11,6 +11,7 @@
 }
 
 @media screen and (max-width: 1152px) {
+
   .footer {
     position: relative;
     top: 20px;
@@ -18,6 +19,7 @@
 }
 
 @media screen and (max-width: 580px) {
+
   .footer {
     padding: 8px 12px;
   }
@@ -44,6 +46,7 @@
 }
 
 @media screen and (max-width: 580px) {
+
   .footer__social-icon {
     width: 18px;
     height: 18px;
@@ -62,6 +65,7 @@
 }
 
 @media screen and (max-width: 680px) {
+
   .footer__text {
     font-size: 10px;
     margin-top: 6px;
@@ -78,6 +82,7 @@
 }
 
 @media screen and (max-width: 680px) {
+
   .footer__link-text {
     font-size: 10px;
   }
@@ -100,6 +105,7 @@
 }
 
 @media screen and (max-width: 680px) {
+
   .footer__sound-button {
     width: 20px;
     height: 20px;
@@ -116,6 +122,7 @@
 }
 
 @media screen and (max-width: 680px) {
+
   .footer__sound-button1 {
     width: 20px;
     height: 20px;
@@ -126,6 +133,6 @@
   opacity: 0.6;
   cursor: pointer;
   transition: 0.5s;
-  box-shadow: 0 0px 0px black;
+  box-shadow: 0 0 0 black;
   transform: translateY(2px);
 }
