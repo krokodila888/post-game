@@ -24,7 +24,6 @@ type TGameProps = {
 
 const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
 
-  //const {screen, setScreen, musicOn, setMusicOn} = props;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { userName, userNick, gameProgress } = useSelector((state: any) => state.userReducer);

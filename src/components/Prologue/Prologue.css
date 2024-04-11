@@ -1,17 +1,27 @@
 @import url(../../vendor/Railroad/stylesheet.css);
 
 @keyframes ani {
-  0% {opacity: 0.3;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes ani2 {
-  0% {opacity: 0.5;}
-  100% {opacity: 0.7;}
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes fade {
-  0% {opacity: 0.2;}
+  0% {
+    opacity: 0.2;
+  }
   10% {
     opacity: 0.9;
   }
@@ -55,7 +65,7 @@
   }
 
   to {
-    transform: scale(1.0) translateX(0px) translateY(0px);;
+    transform: scale(1) translateX(0px) translateY(0px);
   }
 }
 
@@ -104,7 +114,7 @@
 }
 
 @media screen and (max-width: 1280px) {
-  .prologue__text  {
+  .prologue__text {
     top: 40vw;
     width: 40%;
     font-size: clamp(12px, 2vw, 32px);
@@ -140,18 +150,26 @@
 }
 
 .prologue__pic1 {
-  animation: upScale 16s ease-in-out, fade2 1 6s;
+  animation:
+    upScale 16s ease-in-out,
+    fade2 1 6s;
 }
 
 .prologue__pic2 {
-  animation: move1 16s ease-in-out, fade2 1 6s;
+  animation:
+    move1 16s ease-in-out,
+    fade2 1 6s;
 }
 
 .prologue__pic3 {
-  animation: move2 16s ease-in-out, fade2 1 6s;
+  animation:
+    move2 16s ease-in-out,
+    fade2 1 6s;
 }
 .prologue__pic4 {
-  animation: scale 16s ease-in-out, fade2 1 6s;
+  animation:
+    scale 16s ease-in-out,
+    fade2 1 6s;
 }
 
 .prologue__fone {

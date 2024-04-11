@@ -42,7 +42,7 @@ const Main: FC = () => {
 
   function getImgEffect() {
     let res = Math.floor(Math.random() * (4 - 1) + 1);
-    if (res ===  1) return "main__pic main__pic1";
+    if (res === 1) return "main__pic main__pic1";
     if (res === 2) return 'main__pic main__pic2'; 
     if (res === 3) return 'main__pic main__pic3' 
     return 'main__pic main__pic4'
@@ -102,11 +102,6 @@ const Main: FC = () => {
 
   function soundOnMain() { 
     startAudio.current.play();
-  }
-
-  function soundOff1() {
-    pubAudio.current.pause();
-    startAudio.current.pause();
   }
   
   function goNext(x: string) {

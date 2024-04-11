@@ -1,5 +1,5 @@
-.footer{
-  background-color: #1a1919;;
+.footer {
+  background-color: #1a1919;
   opacity: 0.8;
   width: 100%;
   padding: 16px 40px;
@@ -22,7 +22,6 @@
     padding: 8px 12px;
   }
 }
-
 
 .footer__content {
   display: flex;
@@ -75,7 +74,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 10px
+  gap: 10px;
 }
 
 @media screen and (max-width: 680px) {

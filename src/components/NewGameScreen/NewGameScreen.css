@@ -1,17 +1,27 @@
 @import url(../../vendor/Railroad/stylesheet.css);
 
 @keyframes ani {
-  0% {opacity: 0.3;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes ani2 {
-  0% {opacity: 0.5;}
-  100% {opacity: 0.7;}
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes fade2 {
-  0% {opacity: 0.2;}
+  0% {
+    opacity: 0.2;
+  }
   10% {
     opacity: 0.9;
   }
@@ -126,7 +136,7 @@
 .newGameScreen__input {
   background: white;
   border: none;
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #e8e8e8;
   color: #000000;
   font-family: 'Inter', sans-serif;
   font-weight: 400;

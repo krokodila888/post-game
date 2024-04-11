@@ -41,16 +41,20 @@
 
 @keyframes rotation {
   0% {
-    transform:rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform:rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes ani {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .aboutMe__res-img {
@@ -83,7 +87,9 @@
 .preloader__round {
   width: 300px;
   height: 300px;
-  animation: any 2s, rotation 5s;
+  animation:
+    any 2s,
+    rotation 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   -webkit-filter: drop-shadow(3px 5px 5px #000);

@@ -5,7 +5,7 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setUserName, setUserNick, clearUser } from '../../services/actions/user.js';
+import { setUserName, setUserNick, clearUser } from '../../services/actions/user';
 
 const App: FC = () => {
 
@@ -22,9 +22,13 @@ const App: FC = () => {
   useEffect(() => {
     if ((localStorage.getItem('userName') !== (null || undefined)) &&
     (localStorage.getItem('userNick') !== (null || undefined))) {
+      let name = localStorage.getItem('userName');
+      let nick = localStorage.getItem('userNick');
+      if (name !== null && nick !== null) {
       console.log(localStorage.getItem('userName'));
-      dispatch(setUserName(localStorage.getItem('userName')));
-      dispatch(setUserNick(localStorage.getItem('userNick')));
+      dispatch(setUserName(name));
+      dispatch(setUserNick(nick));
+      }
     }
   }, []);
 

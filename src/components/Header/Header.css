@@ -1,17 +1,27 @@
 @import url(../../vendor/Railroad/stylesheet.css);
 
 @keyframes ani {
-  0% {opacity: 0.3;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes ani2 {
-  0% {opacity: 0.5;}
-  100% {opacity: 0.7;}
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes fade2 {
-  0% {opacity: 0.2;}
+  0% {
+    opacity: 0.2;
+  }
   10% {
     opacity: 0.9;
   }
@@ -24,13 +34,13 @@
 }
 
 @keyframes loading {
-    0% {
-      rotate: 0deg;
-    }
-    100% {
-      rotate: 360deg;
-    }
-  } 
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
 
 .header {
   display: flex;
@@ -90,8 +100,9 @@
   margin: 0;
   left: -40px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  text-shadow: 1px 1px 0px #2b2b2b, 
-  3px 10px 2px rgb(0 0 0 / 95%);
+  text-shadow:
+    1px 1px 0px #2b2b2b,
+    3px 10px 2px rgb(0 0 0 / 95%);
   -webkit-text-stroke: 1px #000000;
   align-self: flex-end;
 }
@@ -106,7 +117,7 @@
   color: #ffa500;
   box-sizing: border-box;
   opacity: 0.6;
-  font-size: clamp(8px, 2vw, 20px);;
+  font-size: clamp(8px, 2vw, 20px);
   z-index: 2;
   margin: 0;
   font-weight: 600;

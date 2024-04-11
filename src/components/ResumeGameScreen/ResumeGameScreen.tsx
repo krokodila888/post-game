@@ -95,11 +95,14 @@ const ResumeGameScreen: FC<TResumeGameScreenProps> = ({ goNext, screen }) => {
       (localStorage.getItem('gameProgress') !== null || undefined) && checkExpression(localStorage.getItem('gameProgress'))
     ) {
       //пишем в консоль, меняем переменную, кладем в стор
+      let saving = localStorage.getItem('gameProgress');
       console.log('valid saving!!')
       console.log('gameProgress LS' + localStorage.getItem('gameProgress'))
       setGameSaving(true);
-      dispatch(setProgress(localStorage.getItem('gameProgress')));
+      if (saving !== null) {
+      dispatch(setProgress(saving));
       console.log('gameProgress' + gameProgress)
+      }
     }
     else {
       console.log('no saving');
