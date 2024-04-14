@@ -1,46 +1,5 @@
 @import url(../../vendor/Railroad/stylesheet.css);
 
-@keyframes ani {
-
-  0% {
-    opacity: 0.3;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes ani2 {
-
-  0% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 0.7;
-  }
-}
-
-@keyframes fade2 {
-
-  0% {
-    opacity: 0.2;
-  }
-
-  10% {
-    opacity: 0.9;
-  }
-
-  95% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
 .resumeGameScreen__content {
   display: flex;
   flex-direction: row;
@@ -51,6 +10,20 @@
   padding-top: 170px;
   color: rgb(100 100 98);
   min-height: 780px;
+}
+
+@media screen and (max-width: 1100px) {
+
+  .resumeGameScreen__content {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+  .resumeGameScreen__content {
+    padding-top: 100px;
+  }
 }
 
 .resumeGameScreen__textblock-content {
@@ -65,15 +38,45 @@
   min-height: 780px;
 }
 
+@media screen and (max-width: 1100px) {
+
+  .resumeGameScreen__textblock-content {
+    min-height: auto;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .resumeGameScreen__textblock-content {
+    padding: 0 12px;
+  }
+}
+
 .resumeGameScreen__pic {
   height: 700px;
   margin: 20px 50px;
   z-index: 2;
 }
 
+@media screen and (max-width: 1100px) {
+
+  .resumeGameScreen__pic {
+    display: none;
+  }
+}
+
 .resumeGameScreen__title {
   font-size: 28px;
   margin-bottom: 8px;
+}
+
+@media screen and (max-width: 550px) {
+
+  .resumeGameScreen__title {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
 }
 
 .resumeGameScreen__last-text {
@@ -83,10 +86,26 @@
   width: 480px;
 }
 
+@media screen and (max-width: 550px) {
+
+  .resumeGameScreen__last-text {
+    font-size: 28x;
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+
 .resumeGameScreen__text {
   font-size: 26px;
   margin: 0;
   max-width: 480px;
+}
+
+@media screen and (max-width: 550px) {
+
+  .resumeGameScreen__text {
+    font-size: 22px;
+  }
 }
 
 .resumeGameScreen__small-text {
@@ -96,18 +115,20 @@
 }
 
 .resumeGameScreen__small-text:last-of-type {
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .resumeGameScreen__form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .resumeGameScreen__button {
   color: rgb(51 50 50);
   background-color: #ffa500;
-  width: 480px;
+  max-width: 480px;
+  width: 100%;
   height: 60px;
   margin: 20px 0;
   border-radius: 20px;
@@ -127,6 +148,14 @@
   flex-direction: row;
   align-items: stretch;
   gap: 20px;
+}
+
+@media screen and (max-width: 560px) {
+
+  .resumeGameScreen__button-block {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .resumeGameScreen__small-button {
@@ -154,7 +183,8 @@
   font-family: Inter, sans-serif;
   font-weight: 400;
   line-height: 17px;
-  width: 480px;
+  max-width: 480px;
+  width: 100%;
   height: 52px;
   text-overflow: ellipsis;
   white-space: nowrap;

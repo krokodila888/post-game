@@ -1,19 +1,16 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fone from '../../images/fone.jpg';
 import pub from '../../images/pub1.png';
-import skip from '../../images/skip.png';
-import skip2 from '../../images/skip-white.png';
-//import { module1 } from '../../utils/constants';
 import figure1 from '../../images/figure1.png';
 import figure2 from '../../images/figure2.png';
-import figure3 from '../../images/figure3.png';
 import figure6 from '../../images/figure6.png';
 import figure5 from '../../images/figure5.png';
 import bandits from '../../images/bandits.png';
 import albert from '../../images/albert.png';
 import { TScreen } from '../../utils/types';
+import ChoiceScreenBlock from '../ChoiceScreenBlock/ChoiceScreenBlock';
 import './GameScreen.css';
 import {
   setUserName,
@@ -31,14 +28,15 @@ type TGameProps = {
 const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { userName, userNick, gameProgress } = useSelector(
+  const { userName, userNick, gameProgress, temporaryProgress } = useSelector(
     (state: any) => state.userReducer
   );
   const [count, setCount] = useState(0);
   const [part, setPart] = useState('Пролог. Часть 1');
   const [module, setModule] = useState<TScreen[]>([]);
-  const [currentChoise, setCurrentChoise] = useState('');
-  const [choise, setChoise] = useState('R1');
+  const [currentChoice, setCurrentChoice] = useState('');
+  const [choice, setChoice] = useState('R1');
+  const valueRef = React.useRef('');
   const [cadr, setCadr] = useState<TScreen>({
     turn: 0,
     pic: pub,
@@ -52,7 +50,7 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
   useEffect(() => {
     console.log('setting module1');
     if (!gameProgress || gameProgress === 'R1') {
-      console.log('setting module2');
+      console.log('setting module 2');
       setModule(module1);
       console.log(module);
     }
@@ -86,10 +84,45 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
       text1: 'Итак, на чем мы остановились?',
       text2: 'Кажется, будет потасовка. Шкурой чую такие вещи.',
       screenType: 'simple',
-      figure: null,
+      figure: {
+        url: bandits,
+        position: 'game__figure3',
+      },
     },
     {
       turn: 2,
+      pic: pub,
+      text1: `Проходя мимо, один их них опрокидывает мое пиво.`,
+      text2: `Да, я не выгляжу самым опасным человеком в этом зале, но всему есть границы.`,
+      screenType: 'choice',
+      button1: {
+        text: '- Надеюсь, это была случайность, приятель.',
+        mark: 1,
+      },
+      button2: {
+        text: `Подождать, пока они сцепятся с тем парнем. Опыт подсказывает мне, что ждать не придется.`,
+        mark: 2,
+      },
+      figure: {
+        url: bandits,
+        position: 'game__figure3',
+      },
+    },
+    {
+      turn: 3,
+      pic: pub,
+      text1: `${currentChoice === '1' ? '- Чего тебе?' : currentChoice === '2' ? 'Щурясь, я смотрю, как те ребята проходят к стойке.' : ''}`,
+      screenType: 'simple',
+      button1: {
+        text: `${currentChoice === '1' ? '- Я не хочу проблем, вы не хотите копать друзьям могилу. У нас еще есть шансы.' : currentChoice === '2' ? 'Пересекаюсь взглядом с тем парнем в конце зала и едва заметно киваю.' : ''}`,
+      },
+      figure: {
+        url: bandits,
+        position: 'game__figure3',
+      },
+    },
+    {
+      turn: 4,
       pic: pub,
       text1: `Здесь игра пока заканчивается.`,
       text2: `Но скоро история двинется дальше!`,
@@ -137,7 +170,7 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
       turn: 5,
       pic: pub,
       text1: `- Эй, это ведь ты ${localStorage.getItem('userNick')}?`,
-      text2: 'Боже, кому я нужен?..',
+      text2: 'Кто это еще?..',
       screenType: 'simple',
       figure: null,
     },
@@ -145,7 +178,7 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
       turn: 6,
       pic: pub,
       text1: `- Это вас берут проводником, если хотят пройти Костяной перевал без жертв?..`,
-      screenType: 'choise',
+      screenType: 'choice',
       button1: {
         text: '- А какой у вас груз? Это недешево.',
         mark: 1,
@@ -167,7 +200,7 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
       turn: 7,
       pic: pub,
       text1: `- Ты ${localStorage.getItem('userNick')}, который возит в Согнберг выпивку под носом у Стражей?`,
-      screenType: 'choise',
+      screenType: 'choice',
       button1: {
         text: '- И не только выпивку. И вот кстати...',
         mark: 1,
@@ -197,7 +230,7 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
       turn: 9,
       pic: pub,
       text1: `- Это ведь к вам обращаются, если нужно вывезти человека из Новой Алои?..`,
-      screenType: 'choise',
+      screenType: 'choice',
       button1: {
         text: '- О таком не говорят с незнакомцами. Но мы можем познакомиться.',
         mark: 1,
@@ -219,7 +252,7 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
       turn: 10,
       pic: pub,
       text1: `- А это за твою голову концерн Солано обещает 500 крон и личную благодарность их капо?`,
-      screenType: 'choise',
+      screenType: 'choice',
       button1: {
         text: '- 500 крон? Покажите мне идиота, который согласится.',
         mark: 1,
@@ -341,35 +374,54 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
     },
   ];
 
-  function skip1() {
-    setCount(count + 1);
-    if (cadr.screenType === 'endChapter' && cadr.next !== undefined && cadr.nextPart !== undefined) {
-      console.log('Next Chapter!');
-      setModule(cadr.next);
-      setCount(0);
-      setCadr(cadr.next[0]);
-      setPart(cadr.nextPart);
-      setChoise('R2' + choise.slice(2));
-      dispatch(setProgress('R2' + choise.slice(2)));
-      localStorage.setItem('gameProgress', 'R2' + choise.slice(2));
+  function skip() {
+    console.log(currentChoice);
+    if (cadr.screenType === 'endChapter') {
+      if (cadr.next !== undefined && cadr.nextPart !== undefined) {
+        setModule(cadr.next);
+        setCount(0);
+        setCadr(cadr.next[0]);
+        setPart(cadr.nextPart);
+        setChoice('R2' + choice.slice(2));
+        dispatch(setProgress('R2' + choice.slice(2)));
+        localStorage.setItem('gameProgress', 'R2' + choice.slice(2));
+      }
+    } else setCount(count + 1);
+  }
+
+  async function handleChoice(item: string | number | undefined) {
+    if (cadr.screenType === 'choice' && gameProgress.slice(0, 2) === 'R1') {
+      console.log('choice R1!!!');
+      console.log(item);
+      setCurrentChoice(currentChoice + item);
+      skip();
+    }
+    if (cadr.screenType === 'choice' && gameProgress.slice(0, 2) === 'R2') {
+      console.log('choice R2!!!');
+      console.log(item);
+      setCurrentChoice(currentChoice + item);
     }
   }
 
-  function handleChoise(item: string | number | undefined) {
-    //console.log('выбор');
-    //console.log(currentChoise);
-    if (cadr.screenType === 'choise') {
-      setCurrentChoise(currentChoise + item);
+  useEffect(() => {
+    console.log('concl1 '+ (gameProgress.slice(0, 2) === 'R2'))
+    if (gameProgress.slice(0, 2) === 'R2' && ((currentChoice === '1') || (currentChoice === '2'))) {
+      console.log('gp === R2 =' + gameProgress.slice(0, 2) === 'R2');
+      console.log(currentChoice);
+      console.log(currentChoice === ('1' || '2'));
+      console.log('choice: re-setting module2');
+      let aaa = [...module2];
+      setModule(aaa);
+      skip();
     }
-    skip1();
-  }
+  }, [currentChoice, gameProgress]);
 
-  function sumChoises() {
-    if (part === 'Пролог. Часть 1' && currentChoise.length === 4) {
+  function sumChoices() {
+    if (part === 'Пролог. Часть 1' && currentChoice.length === 4) {
       let brave = 0;
       let clever = 0;
       let quite = 0;
-      currentChoise.split('').forEach((item) => {
+      currentChoice.split('').forEach((item) => {
         if (item === '1') {
           brave = brave + 1;
         }
@@ -380,7 +432,7 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
           quite = quite + 1;
         }
       });
-      setCurrentChoise('');
+      setCurrentChoice('');
       if (brave > clever && brave > quite) return 'A';
       if (clever > brave && clever > quite) return 'B';
       if (quite > brave && quite > clever) return 'C';
@@ -395,28 +447,28 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
     if (gameProgress !== 'R1' && gameProgress.slice(0, 2) === 'R1') {
       console.log(gameProgress);
       setModule(module1);
-      setChoise(gameProgress);
+      setChoice(gameProgress);
       setCount(10);
-    };
+    }
     if (gameProgress.slice(0, 2) === 'R2') {
-      setChoise(gameProgress);
+      setChoice(gameProgress);
+      console.log('setting module2 if R2');
       setModule(module2);
       setCadr(module2[0]);
       setCount(0);
+      setPart('Пролог. Часть 2');
     }
   }, []);
 
-
-//тут о том, как суммируются текущие решения
+  //тут о том, как суммируются текущие решения
   useEffect(() => {
-    if (currentChoise.length >= 4) {
-      setChoise(choise + sumChoises());
-      localStorage.setItem('gameProgress', choise + sumChoises());
-      //console.log('save R1+');
-      //console.log(localStorage);
-      dispatch(setProgress(choise));
+    if (currentChoice.length >= 4) {
+      setChoice(choice + sumChoices());
+      console.log('sum choices');
+      localStorage.setItem('gameProgress', choice + sumChoices());
+      dispatch(setProgress(choice));
     }
-  }, [currentChoise]);
+  }, [currentChoice]);
 
   useEffect(() => {
     if (count !== 0) {
@@ -424,12 +476,13 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
     }
   }, [count]);
 
-  /*useEffect(() => {
-    console.log(cadr);
+  useEffect(() => {
     console.log(module);
     console.log(gameProgress);
-    console.log(!gameProgress || gameProgress === 'R1')
-  }, [count]);*/
+    console.log(part);
+    console.log(cadr);
+    console.log(currentChoice);
+  }, [count]);
 
   return (
     <>
@@ -451,89 +504,16 @@ const GameScreen: FC<TGameProps> = ({ goNext, screen }) => {
               {localStorage.getItem('userNick')}
             </p>
             <div className="game__save">
-              <p className="game__saveText">{choise}</p>
+              <p className="game__saveText">{choice}</p>
             </div>
             <p className="game__smallText ">текущий прогресс</p>
           </div>
-          <div className="game__dialogBlock">
-            <p className="game__text2">{cadr.text1}</p>
-            {cadr.text2 && <p className="game__text2">{cadr.text2}</p>}
-            {cadr.screenType === 'simple' &&
-              cadr.button1 &&
-              cadr.button1 !== undefined && (
-                <p
-                  className="game__choise"
-                  onClick={(e) => {
-                    handleChoise(cadr?.button1?.mark);
-                  }}
-                >
-                  {cadr.button1.text}
-                </p>
-              )}
-            {cadr.screenType === 'endChapter' &&
-              cadr.button1 &&
-              cadr.button1 !== undefined && (
-                <p
-                  className="game__choise"
-                  onClick={(e) => {
-                    handleChoise(cadr?.button1?.mark);
-                  }}
-                >
-                  {cadr.button1.text}
-                </p>
-              )}  
-            {cadr.screenType === 'endpoint' &&
-              cadr.button1 &&
-              cadr.button1 !== undefined && (
-                <p
-                  className="game__choise"
-                  onClick={(e) => {
-                    goNext('main');
-                  }}
-                >
-                  {cadr.button1.text}
-                </p>
-              )}
-            {cadr.screenType === 'choise' && (
-              <>
-                {cadr.button1 && cadr.button1 !== undefined && (
-                  <p
-                    className="game__choise"
-                    onClick={(e) => {
-                      handleChoise(cadr?.button1?.mark);
-                    }}
-                  >
-                    {cadr.button1.text}
-                  </p>
-                )}
-                {cadr.button2 && cadr.button2 !== undefined && (
-                  <p
-                    className="game__choise"
-                    onClick={(e) => {
-                      handleChoise(cadr?.button2?.mark);
-                    }}
-                  >
-                    {cadr.button2.text}
-                  </p>
-                )}
-                {cadr.button3 && cadr.button3 !== undefined && (
-                  <p
-                    className="game__choise"
-                    onClick={(e) => {
-                      handleChoise(cadr?.button3?.mark);
-                    }}
-                  >
-                    {cadr.button3.text}
-                  </p>
-                )}
-              </>
-            )}
-            {cadr.screenType !== 'choise' &&
-              cadr.screenType !== 'endpoint' &&
-              !cadr.button1 && (
-                <img src={skip2} onClick={skip1} className="game__skip" />
-              )}
-          </div>
+          <ChoiceScreenBlock
+            goNext={goNext}
+            skip={skip}
+            handleChoice={handleChoice}
+            cadr={cadr}
+          />
         </div>
       </main>
     </>

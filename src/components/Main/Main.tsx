@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { motion, AnimatePresence } from 'framer-motion';
 import pic1 from '../../images/main1.jpg';
 import pic2 from '../../images/main2.jpg';
 import pic3 from '../../images/main3.jpg';
@@ -17,16 +18,13 @@ import GameScreen from '../GameScreen/GameScreen';
 import Prologue from '../Prologue/Prologue';
 import ResumeGameScreen from '../ResumeGameScreen/ResumeGameScreen';
 import {
-  setUserName,
-  setUserNick,
-  setProgress,
-  setTemporaryProgress,
   clearUser,
 } from '../../services/actions/user';
 
 const Main: FC = () => {
   const { userName } = useSelector((state: any) => state.userReducer);
   const [pic, setPic] = useState(1);
+  const [isVisible, setIsVisible] = useState(false);
   const [fact, setFact] = useState(
     'Магистраль - восстановленная ветка железной дороги, проходящая от границ Эйсланда до запада Территорий'
   );
@@ -37,23 +35,7 @@ const Main: FC = () => {
   const pubAudio = React.useRef<any>();
   const startAudio = React.useRef<any>();
   const dispatch = useDispatch();
-
-  //логика смены картинки
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (pic < 5) setPic(pic + 1);
-      if (pic === 5) setPic(1);
-    }, 12000);
-    return () => clearInterval(timer);
-  }, [pic]);
-
-  function getImgEffect() {
-    let res = Math.floor(Math.random() * (4 - 1) + 1);
-    if (res === 1) return 'main__pic main__pic1';
-    if (res === 2) return 'main__pic main__pic2';
-    if (res === 3) return 'main__pic main__pic3';
-    return 'main__pic main__pic4';
-  }
+  const mainImageRef = React.useRef<any>();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -126,11 +108,37 @@ const Main: FC = () => {
     setScreen(x);
   }
 
+  //очищение localStorage для тестов
   function clear() {
     localStorage.clear();
     dispatch(clearUser());
     console.log(localStorage);
   }
+
+  //тут смена картинки
+  const images = [pic1, pic2, pic3, pic4, pic5, pic1];
+
+  useEffect(() => {
+    if (screen === 'main') {
+    const timer = setInterval(() => {
+      if (pic < 5) {
+        setIsVisible(!isVisible);
+        setPic(pic + 1);
+      }
+      if (pic === 5) {
+        setIsVisible(!isVisible);
+        setPic(1);
+      }
+    }, 10000);
+    return () => {
+      clearInterval(timer);
+    };
+  }
+  }, [pic, screen]);
+
+  useEffect(() => {
+    console.log('isVisible ' + isVisible);
+  }, [pic, isVisible]);
 
   return (
     <>
@@ -138,47 +146,20 @@ const Main: FC = () => {
       {screen === 'main' && (
         <main className="main__content">
           <img src={fone} alt="Серый фон" className="main__fone" />
-          {pic === 1 && (
-            <>
-              <img
-                src={pic1}
-                alt="Пейзажи постапокалиптического города"
-                className={getImgEffect()}
-              />
-            </>
-          )}
-          {pic === 2 && (
-            <>
-              <img
-                src={pic2}
-                alt="Пейзажи постапокалиптического города"
-                className={getImgEffect()}
-              />
-            </>
-          )}
-          {pic === 3 && (
-            <>
-              <img
-                src={pic3}
-                alt="Пейзажи постапокалиптического города"
-                className={getImgEffect()}
-              />
-            </>
-          )}
-          {pic === 4 && (
-            <>
-              <img
-                src={pic4}
-                alt="Пейзажи постапокалиптического города"
-                className={getImgEffect()}
-              />
-            </>
-          )}
-          {pic === 5 && (
-            <>
-              <img src={pic5} className={getImgEffect()} />
-            </>
-          )}
+          {isVisible &&
+            <img
+              src={images[pic]}
+              alt="Пейзажи постапокалиптического города"
+              className='main__pic main__pic1'
+            />
+          }
+          {!isVisible &&    
+            <img
+              src={images[pic]}
+              alt="Пейзажи постапокалиптического города"
+              className='main__pic main__pic2'
+            />
+          }
           <div className="main__fact-block">
             <p>{fact}</p>
           </div>
@@ -247,7 +228,10 @@ const Main: FC = () => {
         <audio ref={pubAudio} src={pub} /*type='audio'*/ loop />
         <audio ref={startAudio} src={start} /*type='audio'*/ loop />
       </>
-      <Footer musicOn={musicOn} soundOn={soundOn} soundOff={soundOff} />
+      <Footer 
+        musicOn={musicOn} 
+        soundOn={soundOn} 
+        soundOff={soundOff} />
     </>
   );
 };

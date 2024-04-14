@@ -1,46 +1,5 @@
 @import url(../../vendor/Railroad/stylesheet.css);
 
-@keyframes ani {
-
-  0% {
-    opacity: 0.3;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes ani2 {
-
-  0% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 0.7;
-  }
-}
-
-@keyframes fade2 {
-
-  0% {
-    opacity: 0.2;
-  }
-
-  10% {
-    opacity: 0.9;
-  }
-
-  95% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
 .newGameScreen__content {
   display: flex;
   flex-direction: row;
@@ -51,6 +10,20 @@
   padding-top: 170px;
   color: rgb(100 100 98);
   min-height: 780px;
+}
+
+@media screen and (max-width: 1100px) {
+
+  .newGameScreen__content {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+  .newGameScreen__content {
+    padding-top: 100px;
+  }
 }
 
 .newGameScreen__textblock-content {
@@ -65,27 +38,75 @@
   min-height: 780px;
 }
 
+@media screen and (max-width: 1100px) {
+
+  .newGameScreen__textblock-content {
+    min-height: auto;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .newGameScreen__textblock-content {
+    padding: 0 12px;
+  }
+}
+
 .newGameScreen__pic {
   height: 700px;
   margin: 20px 50px;
   z-index: 2;
 }
 
+@media screen and (max-width: 1100px) {
+
+  .newGameScreen__pic {
+    display: none;
+  }
+}
+
 .newGameScreen__title {
   font-size: 32px;
   margin-bottom: 20px;
+  margin-top: 4px;
+}
+
+@media screen and (max-width: 550px) {
+
+  .newGameScreen__title {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
 }
 
 .newGameScreen__last-text {
   font-size: 52px;
   margin-bottom: 20px;
   margin-top: 150px;
-  width: 480px;
+  max-width: 480px;
+  width: 100%;
+}
+
+@media screen and (max-width: 550px) {
+
+  .newGameScreen__last-text {
+    font-size: 28x;
+    margin-top: 50px;
+    text-align: center;
+  }
 }
 
 .newGameScreen__text {
   font-size: 28px;
   margin: 0;
+}
+
+@media screen and (max-width: 550px) {
+
+  .newGameScreen__text {
+    font-size: 22px;
+  }
 }
 
 .newGameScreen__small-text {
@@ -97,12 +118,14 @@
 .newGameScreen__form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .newGameScreen__button {
   color: rgb(51 50 50);
   background-color: #ffa500;
-  width: 480px;
+  max-width: 480px;
+  width: 100%;
   height: 60px;
   margin: 20px 0;
   border-radius: 20px;
@@ -122,6 +145,14 @@
   flex-direction: row;
   align-items: stretch;
   gap: 20px;
+}
+
+@media screen and (max-width: 560px) {
+
+  .newGameScreen__button-block {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .newGameScreen__small-button {
@@ -149,7 +180,8 @@
   font-family: Inter, sans-serif;
   font-weight: 400;
   line-height: 17px;
-  width: 480px;
+  max-width: 480px;
+  width: 100%;
   height: 60px;
   text-overflow: ellipsis;
   white-space: nowrap;

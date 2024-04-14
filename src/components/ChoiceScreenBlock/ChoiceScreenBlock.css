@@ -1,0 +1,218 @@
+@import url(../../vendor/Railroad/stylesheet.css);
+
+.game__text2 {
+  font-size: clamp(8px, 1.8vw, 24px);
+  margin: 4px 0 0;
+  color: #e3ded5;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  max-width: calc(100% - 50px);
+}
+
+@media screen and (max-width: 880px) {
+
+  .game__text2 {
+    padding-left: 8px;
+    max-width: calc(100% - 40px);
+  }
+}
+
+.game__stageText {
+  font-size: clamp(12px, 2vw, 28px);
+  margin: 10px 0;
+  color: #ffa500;
+  text-shadow: 1px 8px 1px #2b2b2b;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media screen and (max-width: 680px) {
+
+  .game__stageText {
+    margin: 4px 0;
+  }
+}
+
+.game__name {
+  font-size: clamp(10px, 1.8vw, 24px);
+  margin: 10px 0;
+  color: #e3ded5;
+  text-align: center;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 680px) {
+
+  .game__name {
+    margin: 4px 0;
+  }
+}
+
+.game__save {
+  background-color: #1a1919;
+  width: 200px;
+  align-self: center;
+  margin: 10px 0 0;
+  height: 36px;
+}
+
+@media screen and (max-width: 680px) {
+
+  .game__save {
+    width: 100%;
+    height: 22px;
+    padding-top: 4px;
+    margin: 4px 0 0;
+  }
+}
+
+.game__saveText {
+  font-size: clamp(8px, 2vw, 24px);
+  color: #e3ded5;
+  align-self: center;
+  margin: 0;
+  text-align: center;
+}
+
+.game__choice {
+  font-size: clamp(10px, 1.6vw, 24px);
+  color: #e3ded5;
+  padding: 4px 0 4px 30px;
+  background-color: #5b4e4eba;
+  padding-left: 20px;
+  padding-right: 30px;
+  margin: 2px;
+}
+
+@media screen and (max-width: 880px) {
+
+  .game__choice {
+    padding: 2px 0 2px 8px;
+    padding-left: 8px;
+    max-width: calc(100% - 40px);
+  }
+}
+
+.game__choice:first-of-type {
+  margin-top: 10px;
+}
+
+.game__choice:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  background-color: rgb(90 90 126);
+  transition: 0.5s;
+}
+
+.game__text1 {
+  font-size: 28px;
+  color: #ffa500;
+  padding-left: 30px;
+  opacity: 0.6;
+}
+
+.game__textBlock {
+  max-width: 1440px;
+  width: 100%;
+  min-height: 190px;
+  background: #5b4e4e;
+  opacity: 0.8;
+  position: relative;
+  top: -192px;
+  border-radius: 0 0 20px 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  background-color: #1a1919c9;
+}
+
+@media screen and (max-width: 1400px) {
+
+  .game__textBlock {
+    top: calc(-14vw);
+  }
+}
+
+@media screen and (max-width: 760px) {
+
+  .game__textBlock {
+    min-height: 120px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .game__textBlock {
+    min-height: 110px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .game__textBlock {
+    min-height: calc(20vw);
+  }
+}
+
+.game__dialogBlock {
+  display: flex;
+  flex-direction: column;
+  max-width: 1110px;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1919c9;
+}
+
+.game__infoBlock {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  width: 100%;
+  min-width: 200px;
+  height: 100%;
+  align-items: center;
+  background-color: #5b4e4eba;
+}
+
+@media screen and (max-width: 880px) {
+
+  .game__infoBlock {
+    width: auto;
+    min-width: 20%;
+    /*max-width: 20%;*/
+  }
+}
+
+.game__smallText {
+  font-size: clamp(8px, 1.2vw, 16px);
+  color: #ffa500;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.game__skip {
+  height: 40px;
+  width: 50px;
+  z-index: 3;
+  opacity: 0.7;
+  position: absolute;
+  align-self: flex-end;
+  top: 130px;
+  right: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .game__skip {
+    top: 66%;
+    height: 20px;
+    width: 24px;
+  }
+}
+
+.game__skip:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.5s ease;
+}
